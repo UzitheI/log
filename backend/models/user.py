@@ -6,23 +6,25 @@ from db import Base
 
 class common(Base):
     __tablename__='logtable'
+    log_id=Column(Integer, primary_key=True)
     operation=Column(String)
-    createdBy=Column(DateTime)
-    createdOn=Column(String)
-    createdAt=Column(DateTime)
+    createdBy=Column(String)
+    createdOn=Column(DateTime)
+    createdAt=Column(String)
 
 class User(common):
     __tablename__='users'
     id=Column(Integer,primary_key=True)
     username=Column(String,unique=True)
     password=Column(String)
+    log_id=Column(Integer, ForeignKey(common.log_id))
 
 class Item(common):
     
     __tablename__='items'
     id=Column(Integer,primary_key=True)
     item_name=str
-    user_id=Column(Integer,ForeignKey('users.id'))
+    user_id=Column(Integer,ForeignKey(common.log_id))
     users=relationship('Item',back_populates='items')
     
     
