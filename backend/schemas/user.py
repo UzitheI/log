@@ -4,14 +4,14 @@ from datetime import datetime
 
 class common(BaseModel):
     operation:str
-    createdBy:datetime
+    createdBy:str
     createdOn:str
     createdAt:datetime
 
 class UserBase(common):
-    id=int,
-    username=str,
-    password=str
+    id:int
+    username:str
+    password:str
 
 class UserCreate(UserBase):
     pass
