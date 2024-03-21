@@ -19,13 +19,6 @@ class User(common):
     password=Column(String)
     log_id=Column(Integer, ForeignKey(common.log_id))
 
-class Item(common):
-    
-    __tablename__='items'
-    id=Column(Integer,primary_key=True)
-    item_name=str
-    user_id=Column(Integer,ForeignKey(common.log_id))
-    users=relationship('Item',back_populates='items')
     
     
 
