@@ -22,17 +22,4 @@ class User(UserBase):
     class config:
         orm_mode=True
 
-class ItemBase(common):
-    id:int
-    item_name:str
-    user_id:int
-
-class ItemCreate(ItemBase):
-    pass 
-
-class Item(ItemBase):
-    id:int
-    
-    class config:
-        orm_mode:True
 
