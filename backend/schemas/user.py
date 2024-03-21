@@ -3,10 +3,11 @@ from pydantic import BaseModel
 from datetime import datetime
 
 class common(BaseModel):
+    log_id:int
     operation:str
     createdBy:str
-    createdOn:str
     createdAt:datetime
+    user_id:int
 
 class UserBase(common):
     id:int
@@ -15,6 +16,9 @@ class UserBase(common):
 
 class UserCreate(UserBase):
     pass
+
+class UserDelete(UserBase):
+    deleted_by:str
 
 class User(UserBase):
     id:int
