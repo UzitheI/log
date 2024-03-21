@@ -5,7 +5,7 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
-SQLALCHEMY_DATABSE_URL= f"mysql+pymysql://uziP:Kalpana77!@localhost:3306/user_schema"
+SQLALCHEMY_DATABSE_URL= os.getenv('DATABASE_URL')
 
 engine=create_engine(
     SQLALCHEMY_DATABSE_URL,
